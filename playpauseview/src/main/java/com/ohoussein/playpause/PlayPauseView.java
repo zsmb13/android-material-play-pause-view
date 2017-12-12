@@ -199,9 +199,9 @@ public class PlayPauseView extends FrameLayout {
             synchronized (this) {
                 isPlay = mDrawable.isPlay();
                 if (isPlay) {
-                    mDrawable.setPause();
-                } else {
                     mDrawable.setPlay();
+                } else {
+                    mDrawable.setPause();
                 }
             }
 
