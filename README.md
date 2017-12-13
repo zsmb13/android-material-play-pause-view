@@ -61,7 +61,7 @@ view.setOnClickListener(new View.OnClickListener() {
 
 You can use also `PlayPauseView#change(boolean isPlay)` to change play/pause state with animation.
 
-#License
+# License
 
 The MIT License (MIT)
 
