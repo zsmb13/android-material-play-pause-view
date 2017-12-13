@@ -181,8 +181,19 @@ public class PlayPauseView extends FrameLayout {
      * @param withAnim false to change status without animation
      */
     public void change(boolean isPlay, boolean withAnim) {
-        if (mDrawable.isPlay() == isPlay)
+        final boolean requestsSameStateAsCurrent = mDrawable.isPlay() == isPlay;
+        if(isAnimating) {
+            if(requestsSameStateAsCurrent) {
+                queuedToggles = 1; // Force toggle back to current after animation is over
+            } else {
+                queuedToggles = 0; // Don't toggle after animation is over
+            }
             return;
+        }
+
+        if (requestsSameStateAsCurrent) {
+            return;
+        }
         toggle(withAnim);
     }
 
