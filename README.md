@@ -25,7 +25,7 @@ And then the dependency itself:
 
 ```groovy
 dependencies {
-    implementation 'co.zsmb:playpauseview:1.0.3'
+    implementation 'co.zsmb:playpauseview:1.0.4'
 }
 ```
 
