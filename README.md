@@ -14,10 +14,10 @@ Fixes from there:
 
 **Usage Sample**
 
-For now, add my Bintray repository to your `repositories` block (jcenter coming soon):
+The library is available from jcenter:
 ```groovy
 repositories {
-    maven { url 'https://dl.bintray.com/zsmb13/android-material-play-pause-view/' }
+    jcenter()
 }
 ```
 
