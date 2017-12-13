@@ -1,42 +1,46 @@
-`MaterialPlayPauseView` that toggle play/pause with material animation
+# MaterialPlayPauseView
+ 
+A View that can be toggled between play/pause states with Material Design animation.
 
-This an improvements of the [Alex Lockwood's PlayPauseView](https://github.com/alexjlockwood/material-pause-play-animation).
-It add this features:
-* Possibility to specify the view's size and colors
-* Save Instance State
-* Toggle/change state with or without animation
+This an improvement over [OHoussein's fork of PlayPauseView](https://github.com/OHoussein/android-material-play-pause-view).
+
+Fixes from there:
+* Fix for button state getting confused with rapid toggle events
+* Proper publication mechanism
 
 <div  align="center">    
-<img src="https://raw.githubusercontent.com/OHoussein/android-material-play-pause-view/master/media/demo.gif" alt="demo" align=center />
+<img src="./media/demo.gif" alt="demo" align=center />
 </div>
- 
 
 **Usage Sample**
 
-Add this to your project build.gradle
-```	gradle
-allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
+For now, add my Bintray repository to your `repositories` block (jcenter coming soon):
+```groovy
+repositories {
+    maven { url 'https://dl.bintray.com/zsmb13/android-material-play-pause-view/' }
 }
 ```
 
-```	gradle
-compile 'com.github.ohoussein.playpauseview:playpauseview:1.0.1'
+And then the dependency itself:
+
+```groovy
+dependencies {
+    implementation 'co.zsmb:playpauseview:1.0.3'
+}
 ```
+
 #### layout
+
 ```xml
-    <com.ohoussein.playpause.PlayPauseView
-        android:id="@+id/play_pause_view"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:clickable="true"
-        android:foreground="?android:selectableItemBackground"
-        app:fill_color="#e1e1e1"
-        app:pause_bg="#00a2ed"
-        app:play_bg="#001eff" />
+<com.ohoussein.playpause.PlayPauseView
+    android:id="@+id/play_pause_view"
+    android:layout_width="200dp"
+    android:layout_height="200dp"
+    android:clickable="true"
+    android:foreground="?android:selectableItemBackground"
+    app:fill_color="#e1e1e1"
+    app:pause_bg="#00a2ed"
+    app:play_bg="#001eff" />
 ```
 
 * pause_bg : the background for the pause status
@@ -44,22 +48,24 @@ compile 'com.github.ohoussein.playpauseview:playpauseview:1.0.1'
 * fill_color: the icon's color
 
 #### Java
-```java
-        PlayPauseView view = (PlayPauseView) findViewById(R.id.play_pause_view);
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                view.toggle();
-            }
-        });
 
+```java
+PlayPauseView view = (PlayPauseView) findViewById(R.id.play_pause_view);
+view.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        view.toggle();
+    }
+});
 ```
 
-You can use also `PlayPauseView#change(boolean isPlay)` to change play/pause with animation
+You can use also `PlayPauseView#change(boolean isPlay)` to change play/pause state with animation.
 
 #License
 
 The MIT License (MIT)
+
+Copyright (c) 2017 Márton Braun
 
 Copyright 2016 OHoussein
 
